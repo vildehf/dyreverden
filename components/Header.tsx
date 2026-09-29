@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SearchBar from "./SearchBar";
 
 export default function Header() {
   return (
@@ -10,6 +11,7 @@ export default function Header() {
         <Link href="/animals">Utforsk dyr</Link>
         <Link href="/about">Om</Link>
       </nav>
+      <SearchBar />
     </header>
   );
 }
