@@ -7,7 +7,7 @@ type Props = {
 
 export default function AnimalGrid({ animals }: Props) {
   return (
-    <section>
+    <section className="animal-grid">
       {animals.map((animal) => (
         <AnimalCard key={animal.id} animal={animal} />
       ))}

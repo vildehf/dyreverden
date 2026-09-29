@@ -24,28 +24,41 @@ export default async function AnimalPage({ params }: Props) {
   const animal: Animal = data.results[0];
 
   return (
-    <section>
-      <h1>{animal.preferred_common_name ?? animal.name}</h1>
+    <section className="animal-detail">
+      <div className="animal-detail-image">
+        {animal.default_photo && (
+          <Image
+            src={animal.default_photo.medium_url}
+            width={500}
+            height={500}
+            alt={animal.preferred_common_name ?? animal.name}
+          />
+        )}
+      </div>
 
-      {animal.default_photo && (
-        <Image
-          src={animal.default_photo.medium_url}
-          width={500}
-          height={500}
-          alt={animal.preferred_common_name ?? animal.name}
-        />
-      )}
+      <div className="animal-detail-content">
+        <h1>{animal.preferred_common_name ?? animal.name}</h1>
 
-      <p>Vitenskapelig navn: {animal.name}</p>
-      {animal.iconic_taxon_name && (
-        <p>Dyregruppe: {animal.iconic_taxon_name}</p>
-      )}
-      {animal.conservation_status && (
         <p>
-          Bevaringsstatus: {animal.conservation_status.status} (
-          {animal.conservation_status.authority})
+          <span>Vitenskapelig navn</span>
+          {animal.name}
         </p>
-      )}
+
+        {animal.iconic_taxon_name && (
+          <p>
+            <span>Dyregruppe</span>
+            {animal.iconic_taxon_name}
+          </p>
+        )}
+
+        {animal.conservation_status && (
+          <p>
+            <span>Bevaringsstatus</span>
+            {animal.conservation_status.status} ·{" "}
+            {animal.conservation_status.authority}
+          </p>
+        )}
+      </div>
     </section>
   );
 }
