@@ -15,8 +15,10 @@ export default async function AnimalsPage() {
 
   return (
     <>
-      <h1>Utforsk dyr</h1>
-      <AnimalGrid animals={animals} />
+      <section className="animals-page">
+        <h1>Utforsk dyr</h1>
+        <AnimalGrid animals={animals} />
+      </section>
     </>
   );
 }

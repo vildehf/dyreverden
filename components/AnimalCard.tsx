@@ -8,7 +8,7 @@ type Props = {
 
 export default function AnimalCard({ animal }: Props) {
   return (
-    <article>
+    <article className="animal-card">
       {animal.default_photo && (
         <Image
           src={animal.default_photo.medium_url}
@@ -23,7 +23,7 @@ export default function AnimalCard({ animal }: Props) {
           {animal.preferred_common_name ?? animal.name}
         </Link>
       </h2>
-      <p>Vitenskapelig navn: {animal.name}</p>
+      <p>{animal.name}</p>
     </article>
   );
 }

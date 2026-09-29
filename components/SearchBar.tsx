@@ -1,6 +1,6 @@
 import Form from "next/form";
 
-export default function searchBar() {
+export default function SearchBar() {
   return (
     <Form action="/search">
       <input

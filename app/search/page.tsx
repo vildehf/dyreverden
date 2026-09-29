@@ -9,7 +9,11 @@ export default async function SearchPage({ searchParams }: Props) {
   const { q } = await searchParams;
 
   if (!q) {
-    return <h1>Du har ikke søkt etter noe dyr</h1>;
+    return (
+      <section className="search-page">
+        <h1>Du har ikke søkt etter noe dyr</h1>
+      </section>
+    );
   }
 
   const response = await fetch(
@@ -25,17 +29,17 @@ export default async function SearchPage({ searchParams }: Props) {
 
   if (animals.length === 0) {
     return (
-      <>
+      <section className="search-page">
         <h1>Søkeresultater for: {q}</h1>
         <p>Ingen dyr funnet.</p>
-      </>
+      </section>
     );
   }
 
   return (
-    <>
+    <section className="search-page">
       <h1>søkeresultater for: {q}</h1>
       <AnimalGrid animals={animals} />
-    </>
+    </section>
   );
 }

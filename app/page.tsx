@@ -1,20 +1,34 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <>
-      <section>
-        <h1>oppdag dyreverdenen</h1>
-        <p>
-          Utforsk ulike dyrearter, se bilder og lær mer om dyrene vi deler
-          planet med.
-        </p>
+      <section className="hero">
+        <div className="hero-content">
+          <h1>oppdag dyreverdenen</h1>
 
-        <Link href="/animals">Utforsk dyr</Link>
+          <p>
+            Utforsk ulike dyrearter, se bilder og lær mer om dyrene vi deler
+            planet med.
+          </p>
+
+          <Link href="/animals" className="primary-button">
+            Utforsk dyr
+          </Link>
+        </div>
+        <div className="hero-image">
+          <Image
+            src="/tiger-hero.jpg"
+            alt="tiger"
+            width={700}
+            height={700}
+            priority
+          />
+        </div>
       </section>
-      <section>
+
+      <section className="intro">
         <h2>Utforsk og lær</h2>
         <p>
           Søk etter dyr og finn informasjon om ulike arter fra hele verden.
