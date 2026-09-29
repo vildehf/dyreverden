@@ -1,8 +1,29 @@
 export default function AboutPage() {
   return (
-    <section>
-      <h1>Om dyreverden</h1>
-      <p>Her kommer det informasjon om nettstedet</p>
-    </section>
+    <>
+      <section>
+        <h1>Om dyreverden</h1>
+        <p>
+          Dyreverden er et nettsted hvor du kan utforske ulike dyrearter, se
+          bilder og lære mer om dyr fra hele verden.
+        </p>
+      </section>
+
+      <section>
+        <h2>Hvor kommer informasjonen fra?</h2>
+        <p>
+          Informasjonen og bildene på Dyreverden hentes fra iNaturalist gjennom
+          deres API.
+        </p>
+      </section>
+
+      <section>
+        <h2>Om prosjektet</h2>
+        <p>
+          Dyreverden er utviklet som en del av et skoleprosjekt i Next.js og
+          TypeScript.
+        </p>
+      </section>
+    </>
   );
 }
