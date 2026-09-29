@@ -1,5 +1,3 @@
-import AnimalCard from "@/components/AnimalCard";
-import { type Animals } from "@/types/animal";
 import AnimalGrid from "@/components/AnimalGrid";
 import { type Animals } from "@/types/animal";
 
@@ -18,12 +16,7 @@ export default async function AnimalsPage() {
   return (
     <>
       <h1>Utforsk dyr</h1>
-
-      <section>
-        {animals.map((animal) => (
-          <AnimalCard key={animal.id} animal={animal} />
-        ))}
-      </section>
+      <AnimalGrid animals={animals} />
     </>
   );
 }
