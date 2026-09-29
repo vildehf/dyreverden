@@ -12,7 +12,7 @@ export default async function AnimalPage({ params }: Props) {
   const response = await fetch(`https://api.inaturalist.org/v1/taxa/${id}`);
 
   if (!response.ok) {
-    throw new Error("Kunne ikke hente dyret");
+    notFound();
   }
 
   const data = await response.json();
@@ -37,6 +37,15 @@ export default async function AnimalPage({ params }: Props) {
       )}
 
       <p>Vitenskapelig navn: {animal.name}</p>
+      {animal.iconic_taxon_name && (
+        <p>Dyregruppe: {animal.iconic_taxon_name}</p>
+      )}
+      {animal.conservation_status && (
+        <p>
+          Bevaringsstatus: {animal.conservation_status.status} (
+          {animal.conservation_status.authority})
+        </p>
+      )}
     </section>
   );
 }

@@ -7,6 +7,10 @@ export type Animal = {
     medium_url: string;
     attribution: string;
   };
+  conservation_status?: {
+    status: string;
+    authority: string;
+  };
 };
 
 export type Animals = Animal[];
