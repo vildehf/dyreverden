@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { type Animal } from "@/types/animal";
+import Link from "next/link";
 
 type Props = {
   animal: Animal;
@@ -17,7 +18,11 @@ export default function AnimalCard({ animal }: Props) {
         />
       )}
 
-      <h2>{animal.preferred_common_name ?? animal.name}</h2>
+      <h2>
+        <Link href={`/animals/${animal.id}`}>
+          {animal.preferred_common_name ?? animal.name}
+        </Link>
+      </h2>
       <p>Vitenskapelig navn: {animal.name}</p>
     </article>
   );
