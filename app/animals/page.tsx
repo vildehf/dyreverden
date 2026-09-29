@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { type Animals } from "@/types/animal";
 
 export default async function AnimalsPage() {
@@ -19,6 +20,15 @@ export default async function AnimalsPage() {
       <section>
         {animals.map((animal) => (
           <article key={animal.id}>
+            {animal.default_photo && (
+              <Image
+                src={animal.default_photo.medium_url}
+                width={300}
+                height={300}
+                alt={animal.preferred_common_name ?? animal.name}
+              />
+            )}
+
             <h2>{animal.preferred_common_name ?? animal.name}</h2>
             <p>Vitenskapelig navn: {animal.name}</p>
           </article>
