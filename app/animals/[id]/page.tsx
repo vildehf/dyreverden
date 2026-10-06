@@ -23,6 +23,20 @@ export default async function AnimalPage({ params }: Props) {
 
   const animal: Animal = data.results[0];
 
+  function getConservationStatus(status: string) {
+    const statuses: Record<string, string> = {
+      LC: "Livskraftig",
+      NT: "Nær truet",
+      VU: "Sårbar",
+      EN: "Sterkt truet",
+      CR: "Kritisk truet",
+      EW: "Utdødd i vill tilstand",
+      EX: "Utdødd",
+    };
+
+    return statuses[status] ?? status;
+  }
+
   return (
     <section className="animal-detail">
       <div className="animal-detail-image">
@@ -51,13 +65,27 @@ export default async function AnimalPage({ params }: Props) {
           </p>
         )}
 
-        {animal.conservation_status && (
+        {animal.observations_count !== undefined && (
           <p>
-            <span>Bevaringsstatus</span>
-            {animal.conservation_status.status} ·{" "}
-            {animal.conservation_status.authority}
+            <span>Observasjoner på iNaturalist</span>
+            {animal.observations_count}
           </p>
         )}
+
+        <p>
+          <span>Bevaringsstatus</span>
+
+          {animal.conservation_status ? (
+            <>
+              {getConservationStatus(animal.conservation_status.status)} (
+              {animal.conservation_status.status})
+              <br />
+              {animal.conservation_status.authority}
+            </>
+          ) : (
+            "Ingen bevaringsstatus tilgjengelig"
+          )}
+        </p>
       </div>
     </section>
   );

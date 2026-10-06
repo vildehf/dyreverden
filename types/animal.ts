@@ -3,10 +3,14 @@ export type Animal = {
   name: string;
   preferred_common_name?: string;
   iconic_taxon_name?: string;
+  observations_count?: number;
+  wikipedia_url?: string;
+
   default_photo?: {
     medium_url: string;
     attribution: string;
   };
+
   conservation_status?: {
     status: string;
     authority: string;
