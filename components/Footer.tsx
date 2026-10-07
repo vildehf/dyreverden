@@ -1,11 +1,13 @@
+import styles from "./Footer.module.css";
+
 export default function Footer() {
   return (
-    <footer>
-      <p className="footer-logo">Dyreverden</p>
+    <footer className={styles.footer}>
+      <p className={styles.logo}>Dyreverden</p>
 
-      <p className="footer-tagline">Utforsk. Oppdag. Lær.</p>
+      <p className={styles.tagline}>Utforsk. Oppdag. Lær.</p>
 
-      <p className="footer-copyright">© 2026 Dyreverden</p>
+      <p className={styles.copyright}>© 2026 Dyreverden</p>
     </footer>
   );
 }

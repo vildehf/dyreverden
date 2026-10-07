@@ -1,0 +1,10 @@
+.page {
+  padding: 5rem 2rem;
+}
+
+.page > h1 {
+  margin: 0 0 3rem;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 500;
+  line-height: 0.95;
+}

@@ -1,0 +1,41 @@
+.form {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--surface);
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.input {
+  width: 13rem;
+  padding: 0.7rem 1rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1.1rem;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.button {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  background-color: var(--accent);
+  color: var(--background);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.form:focus-within {
+  border-color: var(--accent);
+}
+
+.button:hover {
+  background-color: var(--green);
+}

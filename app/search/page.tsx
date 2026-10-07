@@ -1,5 +1,6 @@
 import AnimalGrid from "@/components/AnimalGrid";
 import { type Animals } from "@/types/animal";
+import styles from "./page.module.css";
 
 type Props = {
   searchParams: Promise<{ q?: string }>;
@@ -10,7 +11,7 @@ export default async function SearchPage({ searchParams }: Props) {
 
   if (!q) {
     return (
-      <section className="search-page">
+      <section className={styles.page}>
         <h1>Du har ikke søkt etter noe dyr</h1>
       </section>
     );
@@ -29,7 +30,7 @@ export default async function SearchPage({ searchParams }: Props) {
 
   if (animals.length === 0) {
     return (
-      <section className="search-page">
+      <section className={styles.page}>
         <h1>Søkeresultater for: {q}</h1>
         <p>Ingen dyr funnet.</p>
       </section>
@@ -37,7 +38,7 @@ export default async function SearchPage({ searchParams }: Props) {
   }
 
   return (
-    <section className="search-page">
+    <section className={styles.page}>
       <h1>søkeresultater for: {q}</h1>
       <AnimalGrid animals={animals} />
     </section>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { type Animal } from "@/types/animal";
 import { notFound } from "next/navigation";
+import styles from "./page.module.css";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -38,19 +39,20 @@ export default async function AnimalPage({ params }: Props) {
   }
 
   return (
-    <section className="animal-detail">
-      <div className="animal-detail-image">
+    <section className={styles.detail}>
+      <div className={styles.image}>
         {animal.default_photo && (
           <Image
             src={animal.default_photo.medium_url}
             width={500}
             height={500}
+            loading="eager"
             alt={animal.preferred_common_name ?? animal.name}
           />
         )}
       </div>
 
-      <div className="animal-detail-content">
+      <div className={styles.content}>
         <h1>{animal.preferred_common_name ?? animal.name}</h1>
 
         <p>
