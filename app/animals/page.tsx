@@ -1,5 +1,6 @@
 import AnimalGrid from "@/components/AnimalGrid";
 import { type Animals } from "@/types/animal";
+import styles from "./page.module.css";
 
 export default async function AnimalsPage() {
   const response = await fetch(
@@ -15,7 +16,7 @@ export default async function AnimalsPage() {
 
   return (
     <>
-      <section className="animals-page">
+      <section className={styles.page}>
         <h1>Utforsk dyr</h1>
         <AnimalGrid animals={animals} />
       </section>

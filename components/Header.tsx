@@ -1,21 +1,22 @@
 import Link from "next/link";
 import SearchBar from "./SearchBar";
 import MobileMenu from "./MobileMenu";
+import styles from "./Header.module.css";
 
 export default function Header() {
   return (
-    <header>
-      <Link href="/" className="header-logo">
+    <header className={styles.header}>
+      <Link href="/" className={styles.logo}>
         Dyreverden
       </Link>
 
-      <nav className="desktop-nav" aria-label="Hovedmeny">
+      <nav className={styles.nav} aria-label="Hovedmeny">
         <Link href="/">Hjem</Link>
         <Link href="/animals">Utforsk dyr</Link>
         <Link href="/about">Om</Link>
       </nav>
 
-      <div className="desktop-search">
+      <div className={styles.search}>
         <SearchBar />
       </div>
 

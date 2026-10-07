@@ -1,0 +1,52 @@
+.page {
+  padding: 5rem 2rem;
+}
+
+.intro {
+  padding-bottom: 5rem;
+  border-bottom: 1px solid var(--surface);
+}
+
+.intro h1 {
+  max-width: 50rem;
+  margin: 0 0 2rem;
+  font-size: clamp(4rem, 9vw, 8rem);
+  font-weight: 500;
+  line-height: 0.9;
+}
+
+.intro p {
+  max-width: 40rem;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--surface);
+}
+
+.section h2 {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.section p {
+  max-width: 35rem;
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding: 3rem 1rem;
+  }
+}
