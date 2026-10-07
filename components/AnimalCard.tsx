@@ -10,12 +10,13 @@ export default function AnimalCard({ animal }: Props) {
   return (
     <article className="animal-card">
       {animal.default_photo && (
-        <Image
-          src={animal.default_photo.medium_url}
-          width={300}
-          height={300}
-          alt={animal.preferred_common_name ?? animal.name}
-        />
+        <div className="animal-card-image">
+          <Image
+            src={animal.default_photo.medium_url}
+            fill
+            alt={animal.preferred_common_name ?? animal.name}
+          />
+        </div>
       )}
 
       <h2>

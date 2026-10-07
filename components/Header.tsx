@@ -1,17 +1,25 @@
 import Link from "next/link";
 import SearchBar from "./SearchBar";
+import MobileMenu from "./MobileMenu";
 
 export default function Header() {
   return (
     <header>
-      <Link href="/">Dyreverden</Link>
+      <Link href="/" className="header-logo">
+        Dyreverden
+      </Link>
 
-      <nav aria-label="Hovedmeny">
+      <nav className="desktop-nav" aria-label="Hovedmeny">
         <Link href="/">Hjem</Link>
         <Link href="/animals">Utforsk dyr</Link>
         <Link href="/about">Om</Link>
       </nav>
-      <SearchBar />
+
+      <div className="desktop-search">
+        <SearchBar />
+      </div>
+
+      <MobileMenu />
     </header>
   );
 }
