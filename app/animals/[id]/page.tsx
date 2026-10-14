@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { type Animal } from "@/types/animal";
+import { getAnimalById } from "@/lib/api";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
 
@@ -10,19 +11,11 @@ type Props = {
 export default async function AnimalPage({ params }: Props) {
   const { id } = await params;
 
-  const response = await fetch(`https://api.inaturalist.org/v1/taxa/${id}`);
+  const animal = await getAnimalById(id);
 
-  if (!response.ok) {
+  if (!animal) {
     notFound();
   }
-
-  const data = await response.json();
-
-  if (!data.results?.length) {
-    notFound();
-  }
-
-  const animal: Animal = data.results[0];
 
   function getConservationStatus(status: string) {
     const statuses: Record<string, string> = {
