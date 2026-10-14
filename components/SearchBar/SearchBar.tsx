@@ -1,5 +1,5 @@
 import Form from "next/form";
-import styles from "./SearchBar.module.css";
+import styles from "../SearchBar/SearchBar.module.css";
 
 export default function SearchBar() {
   return (
