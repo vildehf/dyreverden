@@ -1,4 +1,4 @@
-import AnimalCard from "./AnimalCard";
+import AnimalCard from "../AnimalCard/AnimalCard";
 import { type Animals } from "@/types/animal";
 import styles from "./AnimalGrid.module.css";
 

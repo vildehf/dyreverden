@@ -1,7 +1,7 @@
 import Link from "next/link";
-import SearchBar from "./SearchBar";
-import MobileMenu from "./MobileMenu";
-import styles from "./Header.module.css";
+import SearchBar from "../SearchBar/SearchBar";
+import MobileMenu from "../MobileMenu/MobileMenu";
+import styles from "../Header/Header.module.css";
 
 export default function Header() {
   return (
