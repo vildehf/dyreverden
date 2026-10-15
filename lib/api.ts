@@ -28,7 +28,7 @@ export async function getAnimalById(id: string): Promise<Animal | null> {
 
 export async function searchAnimals(query: string): Promise<Animals> {
   const response = await fetch(
-    `https://api.inaturalist.org/v1/taxa/autocomplete?q=${encodeURIComponent(query)}&taxon_id=1`,
+    `https://api.inaturalist.org/v1/taxa?q=${encodeURIComponent(query)}&taxon_id=1&rank=species&per_page=30`,
   );
 
   if (!response.ok) {
@@ -37,5 +37,22 @@ export async function searchAnimals(query: string): Promise<Animals> {
 
   const data = await response.json();
 
-  return data.results.slice(0, 6);
+  const search = query.toLowerCase().trim();
+  const animals: Animals = data.results.filter((animal: Animal) => {
+    const name = (animal.preferred_common_name ?? animal.name).toLowerCase();
+
+    return name.includes(search);
+  });
+
+  animals.sort((a, b) => {
+    const nameA = (a.preferred_common_name ?? a.name).toLowerCase();
+    const nameB = (b.preferred_common_name ?? b.name).toLowerCase();
+
+    if (nameA === search) return -1;
+    if (nameB === search) return 1;
+
+    return 0;
+  });
+
+  return animals.slice(0, 6);
 }
