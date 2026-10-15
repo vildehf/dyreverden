@@ -1,5 +1,4 @@
 import AnimalGrid from "@/components/AnimalGrid/AnimalGrid";
-import { type Animals } from "@/types/animal";
 import styles from "./page.module.css";
 import { searchAnimals } from "@/lib/api";
 
@@ -31,7 +30,7 @@ export default async function SearchPage({ searchParams }: Props) {
 
   return (
     <section className={styles.page}>
-      <h1>søkeresultater for: {q}</h1>
+      <h1>Søkeresultater for: {q}</h1>
       <AnimalGrid animals={animals} />
     </section>
   );

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { type Animal } from "@/types/animal";
 import { getAnimalById } from "@/lib/api";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
