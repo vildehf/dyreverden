@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "../MobileMenu/MobileMenu.module.css";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default function MobilMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,6 +65,8 @@ export default function MobilMenu() {
         <Link href="/about" onClick={closeMenu}>
           Om
         </Link>
+
+        <SearchBar />
       </nav>
     </>
   );

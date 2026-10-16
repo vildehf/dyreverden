@@ -4,7 +4,8 @@
   justify-content: space-between;
   gap: 2rem;
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid rgba(198, 198, 189, 0.2);
+  background-color: var(--header-background);
+  color: var(--header-text);
 }
 
 .logo {
@@ -26,14 +27,14 @@
 }
 
 .nav a:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+  color: var(--hover);
+  border-bottom-color: var(--hover);
 }
 
 .nav a:focus-visible {
   color: var(--accent);
-  border-bottom-color: var(--accent);
-  outline: 2px solid var(--accent);
+  border-bottom-color: var(--hover);
+  outline: 2px solid var(--hover);
   outline-offset: 3px;
 }
 

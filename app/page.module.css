@@ -1,133 +1,102 @@
 .hero {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-  padding: 5rem 2rem 6rem;
+  min-height: 38rem;
+  padding: 4rem 2rem;
+  overflow: hidden;
 }
 
 .heroContent {
-  flex: 1.2;
   position: relative;
   z-index: 1;
+  max-width: 35rem;
 }
 
 .heroImage {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .heroImage img {
   width: 100%;
-  max-width: 32rem;
-  height: 32rem;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 
-  -webkit-mask-image:
-    linear-gradient(to right, transparent 0%, black 28%, black 100%),
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      black 15%,
-      black 82%,
-      transparent 100%
-    );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 30%,
+    black 90%,
+    transparent 100%
+  );
 
-  -webkit-mask-composite: source-in;
-
-  mask-image:
-    linear-gradient(to right, transparent 0%, black 28%, black 100%),
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      black 15%,
-      black 82%,
-      transparent 100%
-    );
-
-  mask-composite: intersect;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 30%,
+    black 90%,
+    transparent 100%
+  );
 }
 
 .hero h1 {
   max-width: 55rem;
   margin: 0;
-  font-size: clamp(4rem, 10vw, 8rem);
+  font-size: clamp(4rem, 8vw, 6.5rem);
   font-weight: 500;
   line-height: 0.85;
 }
 
-.hero p {
-  max-width: 32rem;
-  margin: 2rem 0;
-  color: var(--text-muted);
-  font-size: 1.2rem;
-  line-height: 1.6;
-}
-
-.primaryButton {
-  display: inline-block;
-  padding: 0.9rem 1.5rem;
-  border-radius: 2rem;
-  background-color: var(--accent);
-  color: var(--background);
-  font-weight: 600;
-}
-
-.primaryButton:hover {
-  background-color: var(--green);
-}
-
 .intro {
-  margin: 2rem;
-  padding: 5rem 2rem;
-  border-radius: 1rem;
-  background-color: var(--beige);
+  max-width: 25rem;
+  margin: 3.8rem 0 0;
+  padding: 1.5rem 2rem;
+  border-radius: 0.75rem;
+  background-color: var(--text);
   color: var(--background);
-}
-
-.intro h2 {
-  max-width: 40rem;
-  margin: 0 0 1.5rem;
-  font-size: clamp(3rem, 7vw, 6rem);
-  font-weight: 500;
-  line-height: 0.95;
-}
-
-.intro p {
-  max-width: 38rem;
-  margin-bottom: 2rem;
-  color: var(--background);
-  font-size: 1.05rem;
-  line-height: 1.6;
 }
 
 .intro a {
   display: inline-block;
-  padding-bottom: 0.25rem;
+  color: var(--background);
   border-bottom: 1px solid var(--background);
   font-weight: 600;
 }
 
 .intro a:hover {
-  color: var(--green);
-  border-bottom-color: var(--green);
+  color: var(--beige);
+  border-bottom-color: var(--beige);
 }
 
 .intro a:focus-visible {
-  color: var(--green);
-  outline: 2px solid var(--green);
+  color: var(--beige);
+  outline: 2px solid var(--beige);
   outline-offset: 4px;
+}
+
+.intro h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.intro p {
+  margin: 0 0 1rem;
+  color: var(--background);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 @media (max-width: 700px) {
   .hero {
     flex-direction: column;
     align-items: stretch;
-    padding: 3rem 1rem;
+    min-height: auto;
+    padding: 1.5rem 1rem 3rem;
   }
 
   .hero h1 {
@@ -135,16 +104,61 @@
   }
 
   .heroImage {
+    position: relative;
+    inset: auto;
+    width: 100%;
     margin-top: 2rem;
   }
 
   .heroImage img {
+    width: 100%;
     height: auto;
-    max-height: 30rem;
+    max-height: none;
+    object-fit: cover;
+
+    -webkit-mask-image:
+      linear-gradient(
+        to right,
+        transparent 0%,
+        black 4%,
+        black 96%,
+        transparent 100%
+      ),
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 4%,
+        black 92%,
+        transparent 100%
+      );
+
+    -webkit-mask-composite: source-in;
+
+    mask-image:
+      linear-gradient(
+        to right,
+        transparent 0%,
+        black 4%,
+        black 96%,
+        transparent 100%
+      ),
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 4%,
+        black 92%,
+        transparent 100%
+      );
+
+    mask-composite: intersect;
   }
 
   .intro {
-    margin: 1rem;
-    padding: 3rem 1.5rem;
+    margin: 2rem 0 0;
+    padding: 1.5rem;
+  }
+
+  .intro p {
+    font-size: 1rem;
   }
 }

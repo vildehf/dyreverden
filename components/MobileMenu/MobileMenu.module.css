@@ -92,9 +92,24 @@
     text-align: center;
   }
 
+  .mobile-nav a:hover {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
+
   .mobile-nav a:focus-visible,
   .hamburger:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
+  }
+
+  .mobile-nav form {
+    width: 100%;
+  }
+
+  .mobile-nav input {
+    width: 100%;
+    min-width: 0;
   }
 }
