@@ -23,7 +23,10 @@ export default async function SearchPage({ searchParams }: Props) {
     return (
       <section className={styles.page}>
         <h1>Søkeresultater for: {q}</h1>
-        <p>Ingen dyr funnet.</p>
+        <p>
+          Ingen dyr funnet. Prøv å søke på dyrets engelske navn, for eksempel
+          «Elephant» eller «Red Fox».
+        </p>
       </section>
     );
   }
