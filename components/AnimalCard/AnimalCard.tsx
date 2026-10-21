@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { type Animal } from "@/types/animal";
 import Link from "next/link";
-import styles from "./AnimalCard.module.css";
+import styles from "../AnimalCard.module.css";
 
 type Props = {
   animal: Animal;
