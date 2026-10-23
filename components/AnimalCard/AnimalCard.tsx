@@ -11,23 +11,37 @@ type Props = {
 export default function AnimalCard({ animal, eager = false }: Props) {
   return (
     <article className={styles.card}>
-      {animal.default_photo && (
+      <div className={styles.photoContainer}>
         <div className={styles.image}>
-          <Image
-            src={animal.default_photo.medium_url}
-            fill
-            sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
-            loading={eager ? "eager" : "lazy"}
-            alt={animal.preferred_common_name ?? animal.name}
-          />
+          {animal.default_photo ? (
+            <Image
+              src={animal.default_photo.medium_url}
+              fill
+              sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+              loading={eager ? "eager" : "lazy"}
+              alt={animal.preferred_common_name ?? animal.name}
+            />
+          ) : (
+            <div className={styles.placeholder}>
+              <span aria-hidden="true">✿</span>
+              <span>Bilde ikke tilgjengelig</span>
+            </div>
+          )}
         </div>
-      )}
+
+        {animal.default_photo?.attribution && (
+          <p className={styles.attribution}>
+            Foto: {animal.default_photo.attribution}
+          </p>
+        )}
+      </div>
 
       <h2>
         <Link href={`/animals/${animal.id}`}>
           {animal.preferred_common_name ?? animal.name}
         </Link>
       </h2>
+
       <p>{animal.name}</p>
     </article>
   );

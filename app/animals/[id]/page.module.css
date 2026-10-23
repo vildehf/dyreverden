@@ -35,6 +35,16 @@
   letter-spacing: 0.08rem;
 }
 
+.image .attribution {
+  margin: 0.5rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-style: normal;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  opacity: 0.85;
+}
+
 @media (max-width: 700px) {
   .detail {
     grid-template-columns: 1fr;
@@ -50,4 +60,36 @@
     margin-bottom: 2rem;
     font-size: clamp(3.5rem, 15vw, 5rem);
   }
+}
+
+.photoCredit {
+  margin-top: 0.5rem;
+}
+
+.photoCredit .attribution {
+  margin: 0.2rem 0;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-style: normal;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.photoLink {
+  display: inline-block;
+  margin-top: 0.3rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.photoLink:hover {
+  color: var(--hover);
+}
+
+.photoLink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 0.2rem;
 }
