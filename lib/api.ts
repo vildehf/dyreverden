@@ -17,8 +17,12 @@ export async function getAnimals(): Promise<Animals> {
 export async function getAnimalById(id: string): Promise<Animal | null> {
   const response = await fetch(`https://api.inaturalist.org/v1/taxa/${id}`);
 
-  if (!response.ok) {
+  if (response.status === 404) {
     return null;
+  }
+
+  if (!response.ok) {
+    throw new Error("Kunne ikke hente dyret");
   }
 
   const data = await response.json();
