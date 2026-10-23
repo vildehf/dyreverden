@@ -34,13 +34,40 @@ export default async function AnimalPage({ params }: Props) {
     <section className={styles.detail}>
       <div className={styles.image}>
         {animal.default_photo && (
-          <Image
-            src={animal.default_photo.medium_url}
-            width={500}
-            height={500}
-            loading="eager"
-            alt={animal.preferred_common_name ?? animal.name}
-          />
+          <>
+            <Image
+              src={animal.default_photo.medium_url}
+              width={500}
+              height={500}
+              loading="eager"
+              alt={animal.preferred_common_name ?? animal.name}
+            />
+
+            <div className={styles.photoCredit}>
+              {animal.default_photo.attribution && (
+                <p className={styles.attribution}>
+                  Foto: {animal.default_photo.attribution}
+                </p>
+              )}
+
+              {animal.default_photo.license_code && (
+                <p className={styles.attribution}>
+                  Lisens: {animal.default_photo.license_code.toUpperCase()}
+                </p>
+              )}
+
+              {animal.default_photo.url && (
+                <a
+                  href={animal.default_photo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.photoLink}
+                >
+                  Åpne bildet
+                </a>
+              )}
+            </div>
+          </>
         )}
       </div>
 

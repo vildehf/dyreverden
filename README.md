@@ -86,4 +86,4 @@ npm run build
 - Søket fungerer best med engelske dyrenavn, fordi informasjonen hentes fra iNaturalist API.
 - Dyreoversikten viser et begrenset antall dyrearter, ikke alle artene som finnes i API-et.
 - Noen dyr mangler bilder eller informasjon om bevaringsstatus.
-- Nettsiden er avhengig av at iNaturalist API er tilgjengelig for å hente dyreinformasjon.
+- Nettsiden er avhengig av at iNaturalist API er tilgjengelig for å hente dyreinformasjon. Nettsteder har også begrensninger for antall forespørsler.

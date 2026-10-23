@@ -1,3 +1,5 @@
+import { url } from "inspector";
+
 export type Animal = {
   id: number;
   name: string;
@@ -8,7 +10,9 @@ export type Animal = {
 
   default_photo?: {
     medium_url: string;
-    attribution: string;
+    attribution?: string;
+    license_code?: string | null;
+    url?: string;
   };
 
   conservation_status?: {

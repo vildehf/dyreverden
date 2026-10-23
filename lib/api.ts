@@ -1,5 +1,33 @@
 import { type Animals, type Animal } from "@/types/animal";
 
+function filterPhotoLicense(animal: Animal): Animal {
+  const photo = animal.default_photo;
+
+  if (!photo) {
+    return animal;
+  }
+
+  const allowedLicenses = [
+    "cc0",
+    "cc-by",
+    "cc-by-nc",
+    "cc-by-sa",
+    "cc-by-nc-sa",
+  ];
+
+  if (
+    !photo.license_code ||
+    !allowedLicenses.includes(photo.license_code.toLowerCase())
+  ) {
+    return {
+      ...animal,
+      default_photo: undefined,
+    };
+  }
+
+  return animal;
+}
+
 export async function getAnimals(): Promise<Animals> {
   const response = await fetch(
     "https://api.inaturalist.org/v1/taxa?taxon_id=1&rank=species&per_page=12",
@@ -11,7 +39,7 @@ export async function getAnimals(): Promise<Animals> {
 
   const data = await response.json();
 
-  return data.results;
+  return (data.results as Animals).map(filterPhotoLicense);
 }
 
 export async function getAnimalById(id: string): Promise<Animal | null> {
@@ -27,7 +55,9 @@ export async function getAnimalById(id: string): Promise<Animal | null> {
 
   const data = await response.json();
 
-  return data.results?.[0] ?? null;
+  const animal: Animal | undefined = data.results?.[0];
+
+  return animal ? filterPhotoLicense(animal) : null;
 }
 
 export async function searchAnimals(query: string): Promise<Animals> {
@@ -58,5 +88,5 @@ export async function searchAnimals(query: string): Promise<Animals> {
     return 0;
   });
 
-  return animals.slice(0, 6);
+  return animals.slice(0, 6).map(filterPhotoLicense);
 }
