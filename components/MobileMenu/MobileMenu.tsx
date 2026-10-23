@@ -53,6 +53,7 @@ export default function MobilMenu() {
       <nav
         className={`${styles["mobile-nav"]} ${isOpen ? styles.active : ""}`}
         aria-label="Mobilmeny"
+        inert={!isOpen}
       >
         <Link href="/" onClick={closeMenu}>
           Hjem

@@ -1,25 +1,25 @@
 # Refleksjonsnotat – Dyreverden
 
-## Prosessen så langt
+## Valg og arbeidsprosess
 
-Jeg startet prosjektet med å se på ulike nettsider og design for å finne inspirasjon. Jeg visste at jeg ønsket å lage noe med dyr og natur, og brukte derfor litt tid på å finne ut hvilket uttrykk nettsiden kunne ha.
+Jeg valgte å lage Dyreverden fordi jeg ønsket å lage en nettside med dyr og natur som tema. Jeg startet med å finne inspirasjon og planlegge hvilke sider og funksjoner nettstedet skulle ha. Målet var å lage en oversiktlig nettside hvor brukeren kunne utforske dyrearter, søke etter dyr og finne mer informasjon på egne detaljsider.
 
-Etter dette begynte jeg å idémyldre rundt Dyreverden og planlegge hvordan nettsiden skulle bygges opp. Jeg så for meg en forside, en side hvor man kunne utforske dyr, egne detaljsider for hvert dyr, søk og en Om-side. Deretter begynte jeg å utvikle selve nettsiden.
+Jeg valgte iNaturalist API fordi det gir tilgang til informasjon og bilder av mange ulike dyrearter. Nettsiden er bygget med Next.js og TypeScript, og jeg har brukt gjenbrukbare komponenter som AnimalCard og AnimalGrid. Til designet hentet jeg inspirasjon fra _Ecoflora – Rare Life Exploration Website_ på Dribbble, spesielt naturpreget, fargene og typografien. Jeg tilpasset dette til mitt eget uttrykk.
 
-Jeg valgte iNaturalist API for å hente informasjon og bilder av dyr. Jeg startet med grunnstrukturen og bygget deretter dyreoversikten, dynamiske detaljsider og søk. Jeg laget også gjenbrukbare komponenter som AnimalCard og AnimalGrid.
+## Utfordringer og løsninger
 
-En utfordring underveis var søkefunksjonen. De første API-søkene ga en del irrelevante resultater. Jeg endret derfor søket til å bruke autocomplete og begrenset resultatene til Animalia. Jeg måtte også ta hensyn til at ikke alle dyr har all informasjon tilgjengelig.
+En av de største utfordringene var søkefunksjonen. API-et ga ikke alltid relevante resultater, og jeg måtte prøve ulike måter å begrense og sortere søkeresultatene på. Jeg forsøkte også å få søket til å fungere bedre med norske dyrenavn, men løsningen ble ikke pålitelig nok. Derfor valgte jeg å beholde et enklere søk som fungerer best med engelske dyrenavn.
 
-Da hovedfunksjonaliteten var på plass, gikk jeg tilbake til designet. Etter å ha sett på flere referanser valgte jeg Ecoflora – Rare Life Exploration Website fra Dribbble som hovedinspirasjon. Jeg likte spesielt den mørke bakgrunnen, grønne aksentfargen, store naturbildene og serif-typografien. Jeg har brukt dette som inspirasjon, men tilpasset uttrykket til Dyreverden.
+En annen utfordring var at ikke alle dyr har bilder eller fullstendig informasjon i API-et. Jeg måtte derfor tilpasse visningen slik at sidene også fungerer når enkelte opplysninger mangler. Jeg har også lagt til feilhåndtering for situasjoner der et dyr ikke finnes, eller data ikke kan hentes.
 
-Jeg har også begynt å gjøre nettsiden responsiv slik at den fungerer på mindre skjermer. Foreløpig har jeg prioritert å få hele nettsiden til å fungere og ha et helhetlig uttrykk. Design og responsivitet kan finjusteres videre før innlevering.
+Underveis ble CSS-koden uoversiktlig. Jeg løste dette ved å bruke CSS Modules for å samle stylingen til de ulike sidene og komponentene. Jeg jobbet også med responsivt design, kontraster og synlig fokus for tastaturnavigasjon.
 
-Jeg oppdaget etter hvert at globals.css ble ganske stor og uoversiktlig. Derfor valgte jeg å flytte styling til egne CSS modules. Samtidig oppdaget jeg en del advarsler i konsollens om jeg ryddet opp i. Jeg la blant annet til sizes og justerte hvordan enkelte bilder lastes inn.
+## Hva jeg har lært
 
-## Dette har jeg lært så langt
+Jeg har lært mer om hvordan man henter og bruker data fra et eksternt API, og hvor viktig det er å forstå hvordan dataene er strukturert. Jeg har også fått bedre forståelse for dynamiske sider i Next.js, TypeScript og hvordan komponenter kan gjenbrukes flere steder på nettsiden.
 
-Jeg har lært mye av å jobbe med iNaturalist API-et. Før prosjektet så jeg for meg at det hovedsakelig handlet om å hente data og vise dem på nettsiden, men jeg oppdaget at det ikke alltid var så enkelt. Jeg måtte undersøke hvordan dataene var strukturert, hvilke felter jeg kunne bruke og hva som skjedde når informasjon manglet.
+Prosjektet har vist meg at det ikke bare handler om å få funksjonaliteten til å virke. Jeg må også tenke på feilhåndtering, brukervennlighet, tilgjengelighet og hvordan koden organiseres.
 
-Søk og filtrering av data var også mer utfordrende enn jeg først hadde tenkt. De første søkene ga ikke alltid relevante resultater, så jeg måtte prøve forskjellige måter å søke på og begrense resultatene til dyr. Dette gjorde at jeg fikk en bedre forståelse av hvordan valg av endepunkt og parametere påvirker dataene man får tilbake fra et API.
+## Hva jeg ville forbedret videre
 
-Jeg har også lært mer om refaktorering. I starten lå mer av koden samlet, men etter at funksjonaliteten fungerte delte jeg den opp i blant annet AnimalCard og AnimalGrid. Da så jeg tydeligere hvorfor gjenbrukbare komponenter er nyttige, siden de samme komponentene senere kunne brukes både på dyreoversikten og i søkeresultatene.
+Hvis jeg hadde mer tid, ville jeg jobbet videre med søkefunksjonen, spesielt støtte for norske dyrenavn og bedre filtrering. Jeg ville også vurdert å vise flere dyrearter og legge til flere muligheter for å utforske dem. I tillegg kunne jeg finjustert enkelte detaljer i designet.

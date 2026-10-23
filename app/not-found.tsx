@@ -1,4 +1,5 @@
 import Link from "next/link";
+import styles from "./not-found.module.css";
 
 export default function NotFound() {
   return (
@@ -6,7 +7,9 @@ export default function NotFound() {
       <h1>Dyret ble ikke funnet</h1>
       <p>Vi kunne ikke finne dyret du leter etter.</p>
 
-      <Link href="/animals">Tilbake til alle dyr</Link>
+      <Link href="/animals" className={styles.link}>
+        Tilbake til alle dyr
+      </Link>
     </section>
   );
 }

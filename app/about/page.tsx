@@ -22,8 +22,16 @@ export default function AboutPage() {
       <section className={styles.section}>
         <h2>Om prosjektet</h2>
         <p>
-          Dyreverden er utviklet som en del av et skoleprosjekt i Next.js og
-          TypeScript.
+          Dyreverden er utviklet av Vilde Hvitstein som en del av et
+          skoleprosjekt i Next.js og TypeScript.
+        </p>
+      </section>
+
+      <section className={styles.section}>
+        <h2>Målgruppe</h2>
+        <p>
+          Dyreverden passer for alle som er interessert i natur og dyreliv,
+          uavhengig av forkunnskaper.
         </p>
       </section>
     </div>

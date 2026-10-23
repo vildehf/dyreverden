@@ -8,7 +8,7 @@
   --brown: #ae5121;
 
   --text: #263522;
-  --text-muted: #66705f;
+  --text-muted: #485744;
 
   --hover: #405b3b;
 }
@@ -27,6 +27,10 @@ body {
 body {
   background-color: var(--background);
   color: var(--text);
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -36,7 +40,7 @@ h3 {
 }
 
 main {
-  min-height: 100vh;
+  flex: 1;
   padding: 1rem;
 }
 

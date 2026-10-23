@@ -17,6 +17,7 @@ export default function SearchBar() {
         className={styles.input}
         type="search"
         name="q"
+        aria-label="Søk etter dyr"
         required
         autoComplete="off"
         placeholder="Søk etter dyr"
