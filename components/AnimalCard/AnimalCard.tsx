@@ -5,11 +5,10 @@ import styles from "./AnimalCard.module.css";
 
 type Props = {
   animal: Animal;
-  eager?: boolean;
 };
 
 // Viser et dyrekort med bilde, navn og lenke til dyrets detaljside.
-export default function AnimalCard({ animal, eager = false }: Props) {
+export default function AnimalCard({ animal }: Props) {
   return (
     <article className={styles.card}>
       <div className={styles.photoContainer}>
@@ -20,7 +19,6 @@ export default function AnimalCard({ animal, eager = false }: Props) {
               src={animal.default_photo.medium_url}
               fill
               sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
-              loading={eager ? "eager" : "lazy"}
               alt={animal.preferred_common_name ?? animal.name}
             />
           ) : (

@@ -15,7 +15,7 @@
 }
 
 .card h2 {
-  margin: 1rem 0 0.25rem;
+  margin: 0.5rem 0 0.25rem;
   font-size: 2rem;
   font-weight: 500;
   line-height: 1;
@@ -52,10 +52,6 @@
   line-height: 1.5;
   overflow-wrap: anywhere;
   opacity: 0.85;
-}
-
-.card h2 {
-  margin-top: 0.5rem;
 }
 
 .placeholder {

@@ -12,7 +12,7 @@
   font-weight: 600;
 }
 
-.log:focus-visible {
+.logo:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
   border-radius: 0.2rem;
