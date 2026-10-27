@@ -1,5 +1,6 @@
 import { type Animals, type Animal } from "@/types/animal";
 
+// Sjekker om dyrets bilde har en tillatt Creative Commons-lisens.
 function filterPhotoLicense(animal: Animal): Animal {
   const photo = animal.default_photo;
 
@@ -28,6 +29,7 @@ function filterPhotoLicense(animal: Animal): Animal {
   return animal;
 }
 
+// Henter en liste med dyrearter fra iNaturalist API-et.
 export async function getAnimals(): Promise<Animals> {
   const response = await fetch(
     "https://api.inaturalist.org/v1/taxa?taxon_id=1&rank=species&per_page=12",
@@ -42,7 +44,15 @@ export async function getAnimals(): Promise<Animals> {
   return (data.results as Animals).map(filterPhotoLicense);
 }
 
+// Henter ett dyr basert på ID og returnerer null hvis dyret ikke finnes.
 export async function getAnimalById(id: string): Promise<Animal | null> {
+  // Avviser ugyldige ID-er før vi sender en forespørsel til API-et.
+  const numericId = Number(id);
+
+  if (!/^[1-9]\d*$/.test(id) || !Number.isSafeInteger(numericId)) {
+    return null;
+  }
+
   const response = await fetch(`https://api.inaturalist.org/v1/taxa/${id}`);
 
   if (response.status === 404) {
@@ -60,6 +70,7 @@ export async function getAnimalById(id: string): Promise<Animal | null> {
   return animal ? filterPhotoLicense(animal) : null;
 }
 
+// Søker etter dyrearter og viser opptil seks relevante resultater.
 export async function searchAnimals(query: string): Promise<Animals> {
   const response = await fetch(
     `https://api.inaturalist.org/v1/taxa?q=${encodeURIComponent(query)}&taxon_id=1&rank=species&per_page=30`,

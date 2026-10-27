@@ -3,12 +3,14 @@
 import Form from "next/form";
 import styles from "../SearchBar/SearchBar.module.css";
 
+// Viser et søkefelt som sender brukeren til søkeresultatsiden.
 export default function SearchBar() {
   return (
     <Form
       action="/search"
       className={styles.form}
       onSubmit={(event) => {
+        // Tømmer søkefeltet etter at søket er sendt inn.
         const form = event.currentTarget;
         setTimeout(() => form.reset(), 0);
       }}

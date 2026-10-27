@@ -8,11 +8,13 @@ type Props = {
   eager?: boolean;
 };
 
+// Viser et dyrekort med bilde, navn og lenke til dyrets detaljside.
 export default function AnimalCard({ animal, eager = false }: Props) {
   return (
     <article className={styles.card}>
       <div className={styles.photoContainer}>
         <div className={styles.image}>
+          {/* Viser bildet hvis det er tilgjengelig, ellers en placeholder. */}
           {animal.default_photo ? (
             <Image
               src={animal.default_photo.medium_url}
