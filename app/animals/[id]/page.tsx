@@ -7,15 +7,16 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
+// Henter og viser informasjon om et dyr basert på ID-en i URL-en.
 export default async function AnimalPage({ params }: Props) {
   const { id } = await params;
 
   const animal = await getAnimalById(id);
-
+  // Viser 404-siden dersom dyret ikke finnes.
   if (!animal) {
     notFound();
   }
-
+  // Oversetter forkortelser for bevaringsstatus til norsk.
   function getConservationStatus(status: string) {
     const statuses: Record<string, string> = {
       LC: "Livskraftig",
@@ -63,7 +64,7 @@ export default async function AnimalPage({ params }: Props) {
                   rel="noopener noreferrer"
                   className={styles.photoLink}
                 >
-                  Åpne bildet
+                  Åpne bildet (ny fane)
                 </a>
               )}
             </div>
