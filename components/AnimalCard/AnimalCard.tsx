@@ -31,7 +31,9 @@ export default function AnimalCard({ animal }: Props) {
 
         {animal.default_photo?.attribution && (
           <p className={styles.attribution}>
-            Foto: {animal.default_photo.attribution}
+            {animal.default_photo?.attribution
+              ? `Foto: ${animal.default_photo.attribution}`
+              : "\u00A0"}
           </p>
         )}
       </div>
