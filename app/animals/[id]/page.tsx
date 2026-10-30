@@ -34,7 +34,7 @@ export default async function AnimalPage({ params }: Props) {
   return (
     <section className={styles.detail}>
       <div className={styles.image}>
-        {animal.default_photo && (
+        {animal.default_photo ? (
           <>
             <Image
               src={animal.default_photo.medium_url}
@@ -69,6 +69,11 @@ export default async function AnimalPage({ params }: Props) {
               )}
             </div>
           </>
+        ) : (
+          <div className={styles.placeholder}>
+            <span aria-hidden="true">✿</span>
+            <span>Bilde ikke tilgjengelig</span>
+          </div>
         )}
       </div>
 
