@@ -94,6 +94,7 @@ npm run build
 ## Kjente begrensninger
 
 - Søket fungerer best med engelske dyrenavn, fordi informasjonen hentes fra iNaturalist API.
+- Søket henter opptil 30 treff fra API-et, filtrerer disse og viser maksimalt seks resultater.
 - Dyreoversikten viser et begrenset antall dyrearter, ikke alle artene som finnes i API-et.
 - Noen dyr mangler bilder eller informasjon om bevaringsstatus.
-- Nettsiden er avhengig av at iNaturalist API er tilgjengelig for å hente dyreinformasjon. Nettsteder har også begrensninger for antall forespørsler.
+- Nettsiden er avhengig av at iNaturalist API er tilgjengelig for å hente dyreinformasjon.
