@@ -11,11 +11,20 @@ Dyreverden er laget for alle som er interessert i dyr og natur. Nettsiden skal v
 ## Funksjonalitet
 
 - Utforske en oversikt over ulike dyrearter
-- Søke etter dyr
+
+- Søke etter dyr med vanlige og vitenskapelige navn
+
+- Filtrere søkeresultater etter dyregruppe (pattedyr, fugler, reptiler og amfibier)
+
+- Sortere søkeresultater etter relevans eller alfabetisk rekkefølge
+
 - Åpne en egen detaljside for hvert dyr
+
 - Se informasjon som vitenskapelig navn, dyregruppe, antall observasjoner og bevaringsstatus
-- Tilpasset både store og små skjermer
-- Håndtering av dyr som ikke blir funnet, og feil ved henting av data
+
+- Bruke nettsiden på både mobil, nettbrett og større skjermer
+
+- Håndtering av ugyldige dyresider og feil ved henting av data
 
 ## API
 
@@ -38,13 +47,14 @@ Prosjektet er laget med:
 - React
 - CSS Modules
 - iNaturalist API
+- Git og GitHub
 
 ## Sider
 
 - `/` – Forside
 - `/animals` – Oversikt over dyr
 - `/animals/[id]` – Dynamisk detaljside for et dyr
-- `/search?q=...` – Søkeresultater
+- `/search?q=...` – Søkeresultater med sortering og filtrering
 - `/about` – Informasjon om Dyreverden
 
 ## Tilgjengelighet
