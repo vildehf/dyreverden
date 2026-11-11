@@ -1,15 +1,15 @@
-import Link from "next/link";
-import styles from "./not-found.module.css";
+import Link from 'next/link'
+import styles from './not-found.module.css'
 
 export default function NotFound() {
   return (
     <section>
-      <h1>Dyret ble ikke funnet</h1>
-      <p>Vi kunne ikke finne dyret du leter etter.</p>
+      <h1>Siden ble ikke funnet</h1>
+      <p>Vi kunne ikke finne siden du leter etter.</p>
 
-      <Link href="/animals" className={styles.link}>
-        Tilbake til alle dyr
+      <Link href="/" className={styles.link}>
+        Tilbake til forsiden
       </Link>
     </section>
-  );
+  )
 }

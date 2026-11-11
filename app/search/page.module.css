@@ -13,3 +13,98 @@
   color: var(--text-muted);
   font-size: 1.1rem;
 }
+
+/* Sortering og filtrering */
+.sortForm {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+
+.sortForm label {
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.sortForm select {
+  appearance: none;
+  -webkit-appearance: none;
+
+  height: 38px;
+  min-width: 155px;
+  padding: 0 2rem 0 0.8rem;
+
+  border: 1px solid var(--accent);
+  border-radius: 0.5rem;
+  background-color: transparent;
+  color: inherit;
+
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23263B28' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+}
+
+.sortForm button {
+  height: 38px;
+  min-width: 90px;
+  padding: 0 1rem;
+
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--accent);
+  color: white;
+
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.sortForm button:hover {
+  opacity: 0.85;
+}
+
+.sortForm select:focus-visible,
+.sortForm button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Små og mellomstore skjermer */
+@media (max-width: 900px) {
+  .sortForm {
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+    max-width: 450px;
+  }
+
+  .sortForm select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .sortForm button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}
+
+/* Små mobilskjermer */
+@media (max-width: 600px) {
+  .page {
+    padding: 3rem 1rem;
+  }
+
+  .page > h1 {
+    font-size: clamp(2rem, 9vw, 3rem);
+    overflow-wrap: anywhere;
+  }
+}

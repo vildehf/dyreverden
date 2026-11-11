@@ -1,34 +1,50 @@
-import Image from "next/image";
-import { getAnimalById } from "@/lib/api";
-import { notFound } from "next/navigation";
-import styles from "./page.module.css";
+import Image from 'next/image'
+import { getAnimalById } from '@/lib/api'
+import { notFound } from 'next/navigation'
+import styles from './page.module.css'
+import type { Metadata } from 'next'
 
 type Props = {
-  params: Promise<{ id: string }>;
-};
+  params: Promise<{ id: string }>
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params
+  const animal = await getAnimalById(id)
+
+  if (!animal) {
+    return {
+      title: 'Dyret ble ikke funnet',
+    }
+  }
+
+  return {
+    title: animal.preferred_common_name ?? animal.name,
+  }
+}
 
 // Henter og viser informasjon om et dyr basert på ID-en i URL-en.
 export default async function AnimalPage({ params }: Props) {
-  const { id } = await params;
+  const { id } = await params
 
-  const animal = await getAnimalById(id);
+  const animal = await getAnimalById(id)
   // Viser 404-siden dersom dyret ikke finnes.
   if (!animal) {
-    notFound();
+    notFound()
   }
   // Oversetter forkortelser for bevaringsstatus til norsk.
   function getConservationStatus(status: string) {
     const statuses: Record<string, string> = {
-      LC: "Livskraftig",
-      NT: "Nær truet",
-      VU: "Sårbar",
-      EN: "Sterkt truet",
-      CR: "Kritisk truet",
-      EW: "Utdødd i vill tilstand",
-      EX: "Utdødd",
-    };
+      LC: 'Livskraftig',
+      NT: 'Nær truet',
+      VU: 'Sårbar',
+      EN: 'Sterkt truet',
+      CR: 'Kritisk truet',
+      EW: 'Utdødd i vill tilstand',
+      EX: 'Utdødd',
+    }
 
-    return statuses[status] ?? status;
+    return statuses[status] ?? status
   }
 
   return (
@@ -46,9 +62,7 @@ export default async function AnimalPage({ params }: Props) {
 
             <div className={styles.photoCredit}>
               {animal.default_photo.attribution && (
-                <p className={styles.attribution}>
-                  Foto: {animal.default_photo.attribution}
-                </p>
+                <p className={styles.attribution}>Foto: {animal.default_photo.attribution}</p>
               )}
 
               {animal.default_photo.license_code && (
@@ -110,10 +124,10 @@ export default async function AnimalPage({ params }: Props) {
               {animal.conservation_status.authority}
             </>
           ) : (
-            "Ingen bevaringsstatus tilgjengelig"
+            'Ingen bevaringsstatus tilgjengelig'
           )}
         </p>
       </div>
     </section>
-  );
+  )
 }

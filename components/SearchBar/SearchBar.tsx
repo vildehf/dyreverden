@@ -1,20 +1,15 @@
-"use client";
+'use client'
 
-import Form from "next/form";
-import styles from "../SearchBar/SearchBar.module.css";
+import Form from 'next/form'
+import styles from '../SearchBar/SearchBar.module.css'
+import { useSearchParams } from 'next/navigation'
 
 // Viser et søkefelt som sender brukeren til søkeresultatsiden.
 export default function SearchBar() {
+  const searchParams = useSearchParams()
+  const query = searchParams.get('q') ?? ''
   return (
-    <Form
-      action="/search"
-      className={styles.form}
-      onSubmit={(event) => {
-        // Tømmer søkefeltet etter at søket er sendt inn.
-        const form = event.currentTarget;
-        setTimeout(() => form.reset(), 0);
-      }}
-    >
+    <Form action="/search" className={styles.form}>
       <input
         className={styles.input}
         type="search"
@@ -23,6 +18,8 @@ export default function SearchBar() {
         required
         autoComplete="off"
         placeholder="Søk etter dyr"
+        defaultValue={query}
+        key={query}
       />
       <button type="submit" className={styles.button} aria-label="Søk">
         <svg
@@ -41,5 +38,5 @@ export default function SearchBar() {
         </svg>
       </button>
     </Form>
-  );
+  )
 }

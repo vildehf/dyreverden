@@ -42,6 +42,12 @@
   outline-offset: 3px;
 }
 
+.nav a[aria-current='page'] {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+}
+
 @media (max-width: 700px) {
   .header {
     position: relative;
